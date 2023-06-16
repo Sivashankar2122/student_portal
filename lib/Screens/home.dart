@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart' as badges;
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -99,7 +94,7 @@ class _HomeState extends State<Home> {
           left: 102,
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            width: MediaQuery.of(context).size.width * 0.85,
+            // width: MediaQuery.of(context).size.width * 0.85,
             height: 300,
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -169,19 +164,19 @@ class _HomeState extends State<Home> {
               children: [
                 badges.Badge(
                   position: badges.BadgePosition.topEnd(end: 50),
-                  onTap: () => dialog(),
+                  onTap: () => dialog(context),
                   badgeContent: const Icon(
                     Icons.priority_high,
                     color: Colors.white,
                     size: 12,
                   ),
-                  child: InkWell(
-                    onTap: () => dialog(),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: InkWell(
+                          onTap: () => dialog(context),
                           child: CircleAvatar(
                             maxRadius: 27,
                             backgroundColor: Colors.green,
@@ -198,79 +193,79 @@ class _HomeState extends State<Home> {
                             )),
                           ),
                         ),
-                        const SizedBox(
-                          height: 3,
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        'Attendence',
+                        style: TextStyle(
+                            color: Colors.green.shade700,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: CircleAvatar(
+                          maxRadius: 24,
+                          backgroundColor: Colors.blue,
+                          child: FittedBox(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '8.7%',
+                              style: GoogleFonts.roboto(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          )),
                         ),
-                        Text(
-                          'Attendence',
-                          style: TextStyle(
-                              color: Colors.green.shade700,
-                              fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        'CGPA',
+                        style: TextStyle(
+                            color: Colors.blue.shade700,
+                            // fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: CircleAvatar(
+                          maxRadius: 24,
+                          backgroundColor: Colors.grey,
+                          child: FittedBox(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '4',
+                              style: GoogleFonts.roboto(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          )),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: CircleAvatar(
-                            maxRadius: 24,
-                            backgroundColor: Colors.blue,
-                            child: FittedBox(
-                                child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '8.7%',
-                                style: GoogleFonts.roboto(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            )),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          'CGPA',
-                          style: TextStyle(
-                              color: Colors.blue.shade700,
-                              // fontSize: 18,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: CircleAvatar(
-                            maxRadius: 24,
-                            backgroundColor: Colors.grey,
-                            child: FittedBox(
-                                child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '4',
-                                style: GoogleFonts.roboto(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            )),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          'Daily Assessment Test',
-                          style: TextStyle(
-                              color: Colors.grey.shade700,
-                              // fontSize: 18,
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        'Daily Assessment Test',
+                        style: TextStyle(
+                            color: Colors.grey.shade700,
+                            // fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -287,62 +282,55 @@ class _HomeState extends State<Home> {
         Positioned(
           top: 480,
           left: 20,
-          child: SizedBox(
+          child: Container(
             height: 100,
-            width: 600,
-            child: Expanded(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  gradientContainer('FN', "OD"),
-                  const SizedBox(width: 10),
-                  gradientContainer('AN', "OD"),
-                  const SizedBox(width: 10),
-                  Container(
-                    height: 70,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            spreadRadius: 1,
-                            blurRadius: 1)
-                      ],
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      gradient: LinearGradient(colors: [
-                        const Color.fromARGB(255, 182, 59, 184)
-                            .withOpacity(0.4),
-                        const Color.fromARGB(255, 182, 59, 184)
-                            .withOpacity(0.4),
-                      ]),
-                    ),
-                    padding: const EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Yesterday Hostle Attendance",
-                          style: GoogleFonts.roboto(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          'NA',
-                          style: GoogleFonts.roboto(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
+            child: Row(
+              children: [
+                SizedBox(width: 100, child: gradientContainer('FN', "OD")),
+                const SizedBox(width: 10),
+                SizedBox(width: 100, child: gradientContainer('AN', "OD")),
+                const SizedBox(width: 10),
+                Container(
+                  width: 100,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 1,
+                          blurRadius: 1)
+                    ],
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    gradient: LinearGradient(colors: [
+                      const Color.fromARGB(255, 182, 59, 184).withOpacity(0.4),
+                      const Color.fromARGB(255, 182, 59, 184).withOpacity(0.4),
+                    ]),
                   ),
-                  const SizedBox(width: 10),
-                  gradientContainer('FN', "OD"),
-                  const SizedBox(width: 10),
-                ],
-              ),
+                  padding: const EdgeInsets.all(5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Yesterday Hostle Attendance",
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        'NA',
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
+                // const SizedBox(width: 10),
+                // SizedBox(width: 100, child: gradientContainer('FN', "OD")),
+                const SizedBox(width: 10),
+              ],
             ),
           ),
         ),
@@ -361,35 +349,34 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.w500)),
               ),
               const SizedBox(height: 10),
-              Container(
-                height: 100,
-                width: 600,
-                child: Expanded(
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      gradient('Total Working Days', "110"),
-                      const SizedBox(width: 10),
-                      gradient('Total Days Present', "100"),
-                      const SizedBox(width: 10),
-                      Container(
-                        height: 70,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                spreadRadius: 1,
-                                blurRadius: 1)
-                          ],
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
-                          gradient: LinearGradient(colors: [
-                            Colors.blueGrey.withOpacity(0.4),
-                            Colors.blueGrey.withOpacity(0.4),
-                          ]),
-                        ),
-                        padding: const EdgeInsets.all(5),
+              SizedBox(
+                // height: 100,
+                // width: 600,
+                child: Row(
+                  children: [
+                    gradient('Total Working Days', "110"),
+                    const SizedBox(width: 10),
+                    gradient('Total Days Present', "100"),
+                    const SizedBox(width: 10),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 1)
+                        ],
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        gradient: LinearGradient(colors: [
+                          Colors.blueGrey.withOpacity(0.4),
+                          Colors.blueGrey.withOpacity(0.4),
+                        ]),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -411,8 +398,8 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -424,7 +411,7 @@ class _HomeState extends State<Home> {
 
   gradient(String text, String text1) {
     return Container(
-      height: 70,
+      height: 100,
       width: 100,
       decoration: BoxDecoration(
         boxShadow: [
@@ -439,30 +426,34 @@ class _HomeState extends State<Home> {
           Colors.blueGrey.withOpacity(0.4),
         ]),
       ),
-      padding: const EdgeInsets.all(5),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            text,
-            style: GoogleFonts.roboto(
-                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            text1,
-            style: GoogleFonts.roboto(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-          ),
-        ],
+      padding: const EdgeInsets.all(10),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: GoogleFonts.roboto(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              text1,
+              style: GoogleFonts.roboto(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   gradientContainer(String text, String text1) {
     return Container(
-      height: 70,
-      width: 100,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -476,21 +467,28 @@ class _HomeState extends State<Home> {
           const Color.fromARGB(255, 182, 59, 184).withOpacity(0.4),
         ]),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            text,
-            style: GoogleFonts.roboto(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            text1,
-            style: GoogleFonts.roboto(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-          ),
-        ],
+      padding: EdgeInsets.all(10),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: GoogleFonts.roboto(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              text1,
+              style: GoogleFonts.roboto(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -512,7 +510,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  dialog() {
+  dialog(context) {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(

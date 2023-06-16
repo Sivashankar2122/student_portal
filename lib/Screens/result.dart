@@ -16,20 +16,15 @@ class _ResultState extends State<Result> {
       Container(
         height: 180,
         width: double.infinity,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(1),
-              bottomLeft: Radius.circular(1),
-            ),
-            color: Colors.red),
+        decoration: const BoxDecoration(color: Colors.red),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Result',
+              'End Semester Result',
               style: GoogleFonts.roboto(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 22,
                   fontWeight: FontWeight.w500),
             ),
             Column(

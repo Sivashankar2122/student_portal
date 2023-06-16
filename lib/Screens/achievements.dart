@@ -11,6 +11,7 @@ class Achievements extends StatefulWidget {
 }
 
 class _AchievementsState extends State<StatefulWidget> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 247, 246, 248),
@@ -29,12 +30,14 @@ class _AchievementsState extends State<StatefulWidget> {
                     'Project Competition',
                     0.6,
                     const Color.fromARGB(255, 5, 8, 223),
+                    Colors.indigo.shade100,
                   ),
                   round(
                     '30%',
                     'Events Attended',
                     0.3,
                     const Color.fromARGB(255, 166, 8, 228),
+                    Colors.purple.shade100,
                   ),
                 ],
               ),
@@ -45,13 +48,15 @@ class _AchievementsState extends State<StatefulWidget> {
                     '55%',
                     'Product ',
                     0.55,
-                    const Color.fromARGB(255, 42, 192, 62),
+                    Colors.teal.shade700,
+                    Colors.teal.shade100,
                   ),
                   round(
                     '0%',
                     'Patent',
                     0.0,
-                    Colors.deepPurple,
+                    Colors.pink.shade500,
+                    Colors.pink.shade100,
                   ),
                 ],
               ),
@@ -62,13 +67,15 @@ class _AchievementsState extends State<StatefulWidget> {
                     '0%',
                     'Technical Competition',
                     0.0,
-                    const Color.fromARGB(255, 63, 5, 163),
+                    Colors.blue.shade700,
+                    Colors.blue.shade100,
                   ),
                   round(
                     '80%',
                     'Paper Presentation',
                     0.8,
-                    Colors.deepPurple,
+                    Colors.lime.shade800,
+                    Colors.lime.shade200,
                   ),
                 ],
               ),
@@ -79,13 +86,15 @@ class _AchievementsState extends State<StatefulWidget> {
                     '20%',
                     'Internship',
                     0.2,
-                    const Color.fromARGB(255, 153, 143, 7),
+                    Color.fromARGB(255, 204, 131, 4),
+                    Colors.amber.shade200,
                   ),
                   round(
                     '80%',
                     'Online Courses',
                     0.8,
-                    const Color.fromARGB(255, 4, 137, 155),
+                    Colors.blueGrey.shade500,
+                    Colors.blueGrey.shade100,
                   ),
                 ],
               ),
@@ -96,17 +105,17 @@ class _AchievementsState extends State<StatefulWidget> {
     );
   }
 
-  round(String text, String text1, double num1, Color vannam) {
+  round(String text, String text1, double num1, Color vannam, Color color) {
     return Column(
       children: [
         CircularPercentIndicator(
           animation: true,
-          animationDuration: 10000,
+          animationDuration: 1500,
           radius: 60,
-          lineWidth: 11,
+          lineWidth: 9,
           percent: num1,
           progressColor: vannam,
-          backgroundColor: const Color.fromARGB(255, 170, 170, 172),
+          backgroundColor: color,
           circularStrokeCap: CircularStrokeCap.round,
           center: Text(
             text,
