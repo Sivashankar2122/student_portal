@@ -227,12 +227,15 @@ class Home extends StatelessWidget {
                       const SizedBox(
                         height: 3,
                       ),
-                      Text(
-                        'CGPA',
-                        style: TextStyle(
-                            color: Colors.blue.shade700,
-                            // fontSize: 18,
-                            fontWeight: FontWeight.w500),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(
+                          'CGPA',
+                          style: TextStyle(
+                              color: Colors.blue.shade700,
+                              // fontSize: 18,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                       const SizedBox(
                         height: 5,
@@ -371,8 +374,8 @@ class Home extends StatelessWidget {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
                         gradient: LinearGradient(colors: [
-                          Colors.blueGrey.withOpacity(0.4),
-                          Colors.blueGrey.withOpacity(0.4),
+                          const Color(0XFF00838F).withOpacity(0.3),
+                          const Color(0XFF00838F).withOpacity(0.3),
                         ]),
                       ),
                       padding: const EdgeInsets.all(10),
@@ -422,8 +425,8 @@ class Home extends StatelessWidget {
         ],
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         gradient: LinearGradient(colors: [
-          Colors.blueGrey.withOpacity(0.4),
-          Colors.blueGrey.withOpacity(0.4),
+          const Color(0XFF00838F).withOpacity(0.3),
+          const Color(0XFF00838F).withOpacity(0.3),
         ]),
       ),
       padding: const EdgeInsets.all(10),
@@ -467,7 +470,7 @@ class Home extends StatelessWidget {
           const Color.fromARGB(255, 182, 59, 184).withOpacity(0.4),
         ]),
       ),
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

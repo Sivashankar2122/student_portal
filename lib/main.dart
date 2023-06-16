@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:student_portal/dashboard.dart';
+import 'package:student_portal/Auth/login.dart';
 
 void main() {
   runApp(const Main());
@@ -10,8 +10,8 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Dashboard(),
+    return MaterialApp(
+      home: LoginScreen(),
     );
   }
 }
